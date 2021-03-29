@@ -4,22 +4,32 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Search />
+      <Footer />
     </div>
   );
 }
+function Header() {
+  return(
+    <div className="header-container">
 
+    </div> 
+  )
+}
+function Search() {
+  return(
+    <div className="search-container">
+
+    </div> 
+  )
+}
+function Footer() {
+  return(
+    // I can see this being css grid with three rows - for tomorrow
+    <div className="footer-container">
+
+    </div> 
+  )
+}
 export default App;
