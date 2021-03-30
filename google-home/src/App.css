@@ -1,3 +1,31 @@
+.header-container{
+  display: flex;
+  width: 100%;
+  height: minmax(20%, 200px);
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center; 
+}
+.hlist-item{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+#blank{flex-grow: 5;}
+#a-image{
+  border-radius: 50%;
+}
+#a-image:hover{box-shadow: 0 1px 0 rgb(0 0 0 / 15%);}
+
 .footer-container{
   background-color: lightgray;
   display: grid;
@@ -7,6 +35,8 @@
 }
 .location-container{
   /* Need to add the border at the bottom */
+  border-style: solid;
+  border-width: 0px 0px 2px 0px;
 }
 #uk{
   padding: 2vh 2vw;

@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faBars} from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 
 function App() {
@@ -13,7 +14,22 @@ function App() {
 function Header() {
   return(
     <div className="header-container">
-
+      <div className="left header-item">
+        <div className="hlist-item">About</div>
+        <div className="hlist-item">Store</div>
+      </div>
+      <div className="header" id="blank">
+      </div>
+      <div className="center header-item">
+        <div className="hlist-item">Gmail</div>
+        <div className="hlist-item">Images</div>
+        <div className="hlist-item">
+          <FontAwesomeIcon icon={faBars}/>
+        </div>
+        <div className="hlist-item">
+          <img src="https://lh3.googleusercontent.com/ogw/ADGmqu_czSG2bcSW3Ytd7FBOnmUTFcvfJZKMXkXlHFk0=s32-c-mo" id="a-image" alt="letter A"/>
+        </div>
+      </div>
     </div> 
   )
 }
