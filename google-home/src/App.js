@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faBars} from '@fortawesome/free-solid-svg-icons'
+import {faBars, faSearch, faMicrophone} from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 function Header() {
   return(
     <div className="header-container">
-      <div className="left header-item">
+      <div className="left header-item" id="left-header">
         <div className="hlist-item">About</div>
         <div className="hlist-item">Store</div>
       </div>
@@ -36,7 +36,20 @@ function Header() {
 function Search() {
   return(
     <div className="search-container">
-      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google logo" />
+      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google logo" id="google-img" />
+      <div id="search-bar">
+        <FontAwesomeIcon icon={faSearch}/>
+        <FontAwesomeIcon icon={faMicrophone}/>
+        <input type="text" />
+      </div>
+      <div className="button-link-container">
+        <div className="button-links" id="search">
+          <a href="#">Google Search</a>
+        </div>
+        <div className="button-links" id="wheel-link">
+          <a href="#">Feeling lucky</a>
+        </div>
+      </div>
     </div> 
   )
 }
