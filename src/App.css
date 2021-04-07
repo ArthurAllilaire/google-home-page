@@ -46,8 +46,9 @@
 .g-img{
   background-color: red;
   flex-grow: 1;
-  /* margin: auto; */
-  /* height: 100%; */
+  flex-direction: column; 
+  justify-content: flex-end;
+  align-items: center;
 }
 .bar{
   display: flex;

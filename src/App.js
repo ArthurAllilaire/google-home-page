@@ -44,7 +44,7 @@ function Search() {
         <div className="search-text">
           <FaSearch />
           <FaMicrophone color="blue"/>
-          <input type="text" />
+          <input type="text" autoFocus/>
         </div>
         <div className="button-link-container">
           <div className="button-links" id="search">
