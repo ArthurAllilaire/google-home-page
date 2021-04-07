@@ -31,10 +31,48 @@
 #a-image:hover{box-shadow: 0 1px 0 rgb(0 0 0 / 15%);}
 
 .search-container{
-
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  align-content: center;
+  /* grid-template-rows: 3fr 1fr 2fr; */
+}
+.search{
+  display: flex;
+  justify-content: center;
+}
+.g-img{
+  background-color: red;
+  flex-grow: 1;
+  /* margin: auto; */
+  /* height: 100%; */
+}
+.bar{
+  display: flex;
+  flex-grow: 1;
+  background-color: pink;
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch; 
+  justify-content: center;
+}
+.search-text{
+  /* height: 100%; */
+  background-color: white;
+  flex-grow: 1;
+}
+.button-link-container{
+  background-color: purple;
+}
+#empty{ 
+  background-color: blue;
+  flex-grow: 1;
 }
 #google-img{
   height: 92px;
+  width: 272px;
 }
 .footer-container{
   background-color: lightgray;

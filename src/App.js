@@ -1,5 +1,6 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faBars, faSearch, faMicrophone} from '@fortawesome/free-solid-svg-icons'
+//import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+// import {faBars, faSearch, faMicrophone} from '@fortawesome/free-solid-svg-icons'
+import {FaBars, FaSearch, FaMicrophone} from "react-icons/fa";
 import './App.css';
 
 function App() {
@@ -24,7 +25,7 @@ function Header() {
         <div className="hlist-item">Gmail</div>
         <div className="hlist-item">Images</div>
         <div className="hlist-item">
-          <FontAwesomeIcon icon={faBars}/>
+          <FaBars />
         </div>
         <div className="hlist-item">
           <img src="https://lh3.googleusercontent.com/ogw/ADGmqu_czSG2bcSW3Ytd7FBOnmUTFcvfJZKMXkXlHFk0=s32-c-mo" id="a-image" alt="letter A"/>
@@ -36,20 +37,25 @@ function Header() {
 function Search() {
   return(
     <div className="search-container">
-      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google logo" id="google-img" />
-      <div id="search-bar">
-        <FontAwesomeIcon icon={faSearch}/>
-        <FontAwesomeIcon icon={faMicrophone}/>
-        <input type="text" />
+      <div className="search g-img">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google logo" id="google-img" />
       </div>
-      <div className="button-link-container">
-        <div className="button-links" id="search">
-          <a href="#">Google Search</a>
+      <div className="search bar">
+        <div className="search-text">
+          <FaSearch />
+          <FaMicrophone color="blue"/>
+          <input type="text" />
         </div>
-        <div className="button-links" id="wheel-link">
-          <a href="#">Feeling lucky</a>
+        <div className="button-link-container">
+          <div className="button-links" id="search">
+            <a href="#">Google Search</a>
+          </div>
+          <div className="button-links" id="wheel-link">
+            <a href="#">Feeling lucky</a>
+          </div>
         </div>
       </div>
+      <div className="search" id="empty"></div>
     </div> 
   )
 }
