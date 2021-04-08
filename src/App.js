@@ -42,9 +42,9 @@ function Search() {
       </div>
       <div className="search bar">
         <div className="search-text">
-          <FaSearch />
-          <FaMicrophone color="blue"/>
-          <input type="text" autoFocus/>
+          <FaSearch className="icons" id="search-icon" size={30}/>
+          <FaMicrophone className="icons" color="blue" id="microphone-icon" size={30}/>
+          <input type="text" autoFocus id="search-input"/>
         </div>
         <div className="button-link-container">
           <div className="button-links" id="search">
