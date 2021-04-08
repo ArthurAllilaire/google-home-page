@@ -42,16 +42,16 @@ function Search() {
       </div>
       <div className="search bar">
         <div className="search-text">
-          <FaSearch className="icons" id="search-icon" size={30}/>
-          <FaMicrophone className="icons" color="blue" id="microphone-icon" size={30}/>
+          <FaSearch className="icons" id="search-icon" size={25}/>
+          <FaMicrophone className="icons" color="blue" id="microphone-icon" size={25}/>
           <input type="text" autoFocus id="search-input"/>
         </div>
         <div className="button-link-container">
-          <div className="button-links" id="search">
-            <a href="#">Google Search</a>
+          <div>
+            <input type="submit" value="Google Search" id="button-search" className="button-links"/>
           </div>
-          <div className="button-links" id="wheel-link">
-            <a href="#">Feeling lucky</a>
+          <div>
+            <input type="submit" value="Feeling lucky" id="wheel-link" className="button-links"/>
           </div>
         </div>
       </div>
