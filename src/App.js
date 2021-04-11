@@ -2,15 +2,39 @@
 // import {faBars, faSearch, faMicrophone} from '@fortawesome/free-solid-svg-icons'
 import {FaBars, FaSearch, FaMicrophone} from "react-icons/fa";
 import './App.css';
+import React from 'react';
+import Google from './GoogleSearch.js'
 
-function App() {
-  return (
-    <div className="App">
-      <Header/>
-      <Search />
-      <Footer />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      results: false
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(event){
+    this.setState({results: true});
+    console.log(this.state.results)
+    event.preventDefault();
+  }
+  render() {
+    const {results} = this.state;
+    if(results){
+      return(
+        <div className="App">
+          <Google />
+        </div>
+      )
+    }
+    return (
+      <div className="App">
+        <Header/>
+        <Search handleSubmit={this.handleSubmit}/> 
+        <Footer />
+      </div>
+    );
+  }
 }
 function Header() {
   return(
@@ -34,34 +58,38 @@ function Header() {
     </div> 
   )
 }
-function Search() {
-  return(
-    <div className="search-container">
-      <div className="search g-img">
-        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google logo" id="google-img" />
-      </div>
-      <div className="search bar">
-        <div className="search-text">
-          <FaSearch className="icons" id="search-icon" size={25}/>
-          <FaMicrophone className="icons" color="blue" id="microphone-icon" size={25}/>
-          <input type="text" autoFocus id="search-input"/>
+class Search extends React.Component {
+  // TODO - Need to refactor the search bar 
+  render() {
+    const {handleSubmit} = this.props;
+    console.log(this.props.handleSubmit);
+    return(
+      <div className="search-container">
+        <div className="search g-img">
+          <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google logo" id="google-img" />
         </div>
-        <div className="button-link-container">
-          <div>
-            <input type="submit" value="Google Search" id="button-search" className="button-links"/>
+        <form className="search bar" onSubmit={handleSubmit}>
+          <div className="search-text">
+            <FaSearch className="icons" id="search-icon" size={25}/>
+            <FaMicrophone className="icons" color="blue" id="microphone-icon" size={25}/>
+            <input type="text" autoFocus id="search-input" />
           </div>
-          <div>
-            <input type="submit" value="Feeling lucky" id="wheel-link" className="button-links"/>
+          <div className="button-link-container">
+            <div>
+              <input type="button" value="Google Search" id="button-search" className="button-links"  />
+            </div>
+            <div>
+              <input type="button" value="Feeling lucky" id="wheel-link" className="button-links"/>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="search" id="empty"></div>
-    </div> 
-  )
+        </form>
+        <div className="search" id="empty"></div>
+      </div> 
+    )
+  }
 }
 function Footer() {
   return(
-    // I can see this being css grid with three rows - for tomorrow
     <div className="footer-container">
       <div class="location-container" id="uk">United Kingdom</div>
       <div className="footer-list">
