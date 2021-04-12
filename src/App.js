@@ -62,7 +62,6 @@ class Search extends React.Component {
   // TODO - Need to refactor the search bar 
   render() {
     const {handleSubmit} = this.props;
-    console.log(this.props.handleSubmit);
     return(
       <div className="search-container">
         <div className="search g-img">
@@ -70,9 +69,11 @@ class Search extends React.Component {
         </div>
         <form className="search bar" onSubmit={handleSubmit}>
           <div className="search-text">
-            <FaSearch className="icons" id="search-icon" size={25}/>
-            <FaMicrophone className="icons" color="blue" id="microphone-icon" size={25}/>
-            <input type="text" autoFocus id="search-input" />
+            <div className="search-outline">
+              <FaSearch className="icons" id="search-icon" size={25}/>
+              <FaMicrophone className="icons" color="blue" id="microphone-icon" size={25}/>
+              <input type="text" autoFocus id="search-input" />
+            </div>
           </div>
           <div className="button-link-container">
             <div>

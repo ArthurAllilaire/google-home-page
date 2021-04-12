@@ -66,31 +66,38 @@
   flex-basis: 0;
   display: flex;
 }
-.icons{
-  position: absolute;
-}
-#microphone-icon{
-  top: 30%;
-  right: 14%;
-}
-#search-icon{
-  top: 30%;
-  left: 14%;
-}
-#search-input{
+.search-outline{
   width: 65%;
   height: 44px;
   margin: auto;
   border-radius: 24px;
   border: 1px solid #dfe1e5;
+  display: flex;
+  flex-direction: row;
+}
+.icons{
+  flex-grow: 0.6;
+  margin: auto;
+}
+#microphone-icon{
+  order: 3;
+}
+#search-icon{
+  order: 1;
+}
+#search-input{
+  flex-grow: 5;
+  order: 2;
+  outline: none;
+  border: 0px;
 }
 input:focus{
   border-radius: 24px;
   outline: none;
 }
-input[type="text"]{
+/* input[type="text"]{
   padding-left: 5%;
-}
+} */
 .button-link-container{
   flex-grow: 1.2;
   display: flex;
