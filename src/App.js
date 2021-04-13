@@ -22,9 +22,7 @@ class App extends React.Component {
     const {results} = this.state;
     if(results){
       return(
-        <div className="App">
           <Google />
-        </div>
       )
     }
     return (
@@ -59,7 +57,6 @@ function Header() {
   )
 }
 class Search extends React.Component {
-  // TODO - Need to refactor the search bar 
   render() {
     const {handleSubmit} = this.props;
     return(
