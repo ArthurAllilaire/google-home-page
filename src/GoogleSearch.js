@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaBars, FaSearch, FaMicrophone, FaTimes} from "react-icons/fa";
+import {FaBars, FaSearch, FaMicrophone, FaTimes, FaNewspaper, FaMapMarker, FaCaretSquareRight, FaTag, FaEllipsisV } from "react-icons/fa";
 import './GoogleSearch.css';
 
 class GoogleSearch extends React.Component{
@@ -40,7 +40,7 @@ class Header extends React.Component {
       CrossIcon = <div></div>
     }
     return(
-    <div className="header-container">
+    <div className="google-header-container">
       <div className="top-header-container">
         <div className="logo">
           <a href="#">
@@ -49,7 +49,6 @@ class Header extends React.Component {
         </div>
         <div className="search-bar-container">
           <input type="text"  id="input-bar" value={this.state.value} onChange={this.onSearchChange}/>
-          {/* TODO conditional rendering only when text in */ }
           {CrossIcon}
           <FaMicrophone className="search-icons" size={27} id="microphone"/>
           <FaSearch className="search-icons" size={27} id="mag-glass"/>
@@ -60,8 +59,41 @@ class Header extends React.Component {
           <img src="https://lh3.googleusercontent.com/ogw/ADGmqu_czSG2bcSW3Ytd7FBOnmUTFcvfJZKMXkXlHFk0=s32-c-mo" id="profile-image" alt="letter A"/>
         </div>
       </div>
-      <div classname="bottom-header-container">
-
+      <div id="bottom-header-container">
+        <div id="icon-list">
+          <div className="icon-list-item">
+            <FaSearch className="icon-list-item-icon"/>
+            <p>All</p>
+          </div>
+          <div className="icon-list-item">
+            <FaNewspaper className="icon-list-item-icon"/>
+            <p>News</p>
+          </div>
+          <div className="icon-list-item">
+            <FaMapMarker className="icon-list-item-icon"/>
+            <p>Maps</p>
+          </div>
+          <div className="icon-list-item">
+            <FaCaretSquareRight className="icon-list-item-icon"/>
+            <p>Videos</p>
+          </div>
+          <div className="icon-list-item">
+            <FaTag className="icon-list-item-icon"/>
+            <p>Shopping</p>
+          </div>
+          <div className="icon-list-item">
+            <FaEllipsisV className="icon-list-item-icon"/>
+            <p>More</p>
+          </div>
+        </div>
+        <div id="set-tool-list">
+          <p className="set-tool-list-item">Settings</p>
+          <p className="set-tool-list-item">Tools</p>
+        </div>
+        <div id="empty"></div>
+        <div id="safeSearch">
+          <p>SafeSearch on</p> 
+        </div>
       </div>
     </div>
   )
@@ -69,10 +101,20 @@ class Header extends React.Component {
 }
 function Search() {
   return(
-    <div className="search-container">
+    <div className="search-results-container">
+      <div id="results-container">
+        <p>About 120,000,000 results (0.63 seconds) </p>
+      </div>
+      <SearchResult />
+      <SearchResult />
+      <SearchResult />
+      <SearchResult />
 
     </div>
   )
+}
+function SearchResult () {
+  return(<div></div>)
 }
 function Footer() {
   return(
