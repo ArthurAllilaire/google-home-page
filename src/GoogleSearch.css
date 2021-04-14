@@ -1,5 +1,5 @@
 .googleSearch{
-
+  color: #202124;
 }
 .google-header-container{
   display: flex;
@@ -96,5 +96,41 @@ button{
   margin-left: 150px;
 }
 #results-container{
-  height: 44px;
+  height: auto;
+  margin: 15px 0px;
 }
+/* search result class */
+.search-result-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100px;
+  margin: 30px 0px;
+}
+.top-header-search-result{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+}
+.dot{
+  font-size: 20px;
+  padding: 0px 5px;
+}
+.search-result-small-link{
+  color: #202124;
+  font-size: 14px;
+  text-decoration: none;
+}
+.search-result-header{
+  font-size: 20px;
+  margin: 4px 0px;
+}
+.search-result-link{
+  text-decoration: none;
+}
+.search-result-link:hover{
+  text-decoration: underline;
+}
+/* Footer */

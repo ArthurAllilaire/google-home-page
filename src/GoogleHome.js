@@ -5,9 +5,6 @@ import './GoogleHome.css';
 import React from 'react';
 
 class GoogleHome extends React.Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div className="google-home">
