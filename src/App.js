@@ -14,14 +14,19 @@ class App extends React.Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    this.setState({results: true});
+    this.setState(
+      function(prevState) {
+        return(
+        {results: !prevState.results}
+        )
+      });
   }
   render() {
     const {results} = this.state;
     console.log(results)
     if(results){
       return(
-          <GoogleSearch />
+          <GoogleSearch backToHome={this.handleSubmit}/>
       )
     }
     return (

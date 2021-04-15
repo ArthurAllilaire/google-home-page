@@ -55,7 +55,7 @@ class Search extends React.Component {
           </div>
           <div className="button-link-container">
             <div>
-              <input type="button" value="Google Search" id="button-search" className="button-links"  />
+              <input type="submit" value="Google Search" id="button-search" className="button-links"  />
             </div>
             <div>
               <input type="button" value="Feeling lucky" id="wheel-link" className="button-links"/>

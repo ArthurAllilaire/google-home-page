@@ -6,7 +6,7 @@ class GoogleSearch extends React.Component{
   render() {
     return(
       <div className="googleSearch">
-        <Header />
+        <Header backToHome={this.props.backToHome}/>
         <Search />
         <Footer />
       </div>
@@ -43,9 +43,9 @@ class Header extends React.Component {
     <div className="google-header-container">
       <div className="top-header-container">
         <div className="logo">
-          <a href="#">
+          <button onClick={this.props.backToHome} className="logo-button"> 
             <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google logo" height="30" width="92" />
-          </a>
+          </button>
         </div>
         <div className="search-bar-container">
           <input type="text"  id="input-bar" value={this.state.value} onChange={this.onSearchChange}/>
@@ -113,6 +113,7 @@ function Search() {
       <SearchResult ad={false} link="https://victor-lf.github.io" header="build this webpage - GitHub Pages" mainText="build this webpage. https://benjdelt.github.io/google-results/. With zero coding experience, artist building 180 webpages in 180 days ..." />
       <SearchResult ad={false} link="https://www.websitebuilderexpert.com/building-websites/" header="How to Build a Website 2021 | A Step by Step Beginner's Guide" mainText="6 Apr 2021 — Anyone can build a website with the right tools - and the right guide! We'll show you how to make yours in just 9 steps." />
       <SearchResult ad={false} link="https://www.pcmag.com/how-to/how-to-create-a-website" header="How to Create a Website | PCMag" mainText="You can use an online service to create web pages, or build it offline using a desktop software tool. Or, if you're a coding dynamo, use a plain text editor to create a ..." />
+      <PeopleAlsoAsk heading=""/>
       <SearchResult ad={false} link="https://neilpatel.com/blog/from-0-to-launch-6-steps-to-building-your-first-website/" header="Build a Website: 6 Steps From 0 to Launch - Neil Patel" mainText="Ready to build a website? Here's step by step guide to building and opimizing your first website including what hosting and CMS to use." />
       <SearchResult ad={false} link="https://makeawebsitehub.com/" header="Make Your Own Website in Just 1 Hour With This Easy Guide ..." mainText="This site teaches you how to make a website in just 3 easy to follow steps. There's also lots of really useful resources to help you build traffic in 2021.
       " />
@@ -148,6 +149,9 @@ function SearchResult ({ad, link, header, mainText}) {
       </div>
     </div>
   )
+}
+function PeopleAlsoAsk (){
+  return(<div></div>)
 }
 function Footer() {
   return(

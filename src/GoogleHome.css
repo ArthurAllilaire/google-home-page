@@ -118,7 +118,9 @@ input:focus{
   min-width: 54px;
   text-align: center;
 }
-
+.button-links:hover{
+  cursor: pointer;
+}
 #empty{ 
   flex-grow: 1;
   flex-shrink: 0;
