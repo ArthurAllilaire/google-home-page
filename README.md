@@ -6,5 +6,5 @@
 * Flexbox and css grid to get horizontal navbars
 * changing page of React app on submit of form
 * README.md markup
-* Higher order functions to change state based on different labels
+* Higher order functions to change state based on different labels passed in
 

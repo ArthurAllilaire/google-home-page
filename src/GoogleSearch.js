@@ -158,7 +158,18 @@ function Search() {
     </div>
   )
 }
-function SearchResult ({ad, link, header, mainText}) {
+function SearchResult ({ad, link, header, mainText}) {  
+  return(
+    <div className="search-result-container">
+      <ResultHeader ad={ad} link={link} header={header} />
+      <div className="search-result-text">
+        {mainText}
+      </div>
+    </div>
+  )
+}
+
+function ResultHeader({ad, link, header }){
   let topHeader;
   if(ad){
     topHeader = 
@@ -174,15 +185,12 @@ function SearchResult ({ad, link, header, mainText}) {
     </div>
   }
   return(
-    <div className="search-result-container">
+    <div className="search-result-header-container">
       {topHeader}
       <div className="search-result-header">
         <a href={link} className="search-result-link">
         {header}
         </a>
-      </div>
-      <div className="search-result-text">
-        {mainText}
       </div>
     </div>
   )
@@ -242,7 +250,14 @@ function DropdownMenuItem({title, up, onClick}){
   )
 }
 function WebsiteSummary({text, link, linkHeader, date}){
-  return(<div>{text}</div>)
+  return(
+    <div className="website-summary-container">
+    <div>
+      {text}
+    </div>
+    <div></div>
+    </div>
+    )
 }
 function Footer() {
   return(
