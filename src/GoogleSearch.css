@@ -137,6 +137,7 @@ button{
 .search-result-link:hover{
   text-decoration: underline;
 }
+/* People also ask stylings*/
 .PeopleAlsoAsk-container{
   display: flex;
   flex-direction: column;
@@ -160,5 +161,20 @@ button{
   border-top: 1px solid #ecedef;
   height: 35px;
   align-items: center;
+}
+.website-summary-text{
+  margin: 16px 0px;
+}
+.website-summary-date{
+  font-size: 12px;
+  padding-left: 3px;
+}
+.website-summary-searchFor{
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding-top: 20px;
+}
+.website-summary-searchFor-link{
+  text-decoration: none;
 }
 /* Footer */
