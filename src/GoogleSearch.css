@@ -137,4 +137,28 @@ button{
 .search-result-link:hover{
   text-decoration: underline;
 }
+.PeopleAlsoAsk-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1px solid #ecedef;
+}
+.people-ask-header{
+  font-family: Google Sans, arial, sans-serif;
+  line-height: 1.3;
+  font-weight: normal;
+  margin: 0px;
+  padding-bottom: 8px;
+}
+.DropdownMenuItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 16px;
+  width: 100%;
+  padding: 0px;
+  border-top: 1px solid #ecedef;
+  height: 35px;
+  align-items: center;
+}
 /* Footer */

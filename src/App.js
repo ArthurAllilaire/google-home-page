@@ -23,7 +23,6 @@ class App extends React.Component {
   }
   render() {
     const {results} = this.state;
-    console.log(results)
     if(results){
       return(
           <GoogleSearch backToHome={this.handleSubmit}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaBars, FaSearch, FaMicrophone, FaTimes, FaNewspaper, FaMapMarker, FaCaretSquareRight, FaTag, FaEllipsisV, FaCircle } from "react-icons/fa";
+import {FaBars, FaSearch, FaMicrophone, FaTimes, FaNewspaper, FaMapMarker, FaCaretSquareRight, FaTag, FaEllipsisV, FaCircle, FaAngleUp, FaAngleDown } from "react-icons/fa";
 import './GoogleSearch.css';
 
 class GoogleSearch extends React.Component{
@@ -37,7 +37,7 @@ class Header extends React.Component {
         <FaTimes className="search-icons" size={30} id="cross-icon"/>
       </button>      
     } else{
-      CrossIcon = <div></div>
+      CrossIcon = null
     }
     return(
     <div className="google-header-container">
@@ -62,6 +62,7 @@ class Header extends React.Component {
       <div id="bottom-header-container">
         <div id="icon-list">
           <div className="icon-list-item">
+            {/*TODO - add blue highlighting */}
             <FaSearch className="icon-list-item-icon"/>
             <p>All</p>
           </div>
@@ -113,7 +114,43 @@ function Search() {
       <SearchResult ad={false} link="https://victor-lf.github.io" header="build this webpage - GitHub Pages" mainText="build this webpage. https://benjdelt.github.io/google-results/. With zero coding experience, artist building 180 webpages in 180 days ..." />
       <SearchResult ad={false} link="https://www.websitebuilderexpert.com/building-websites/" header="How to Build a Website 2021 | A Step by Step Beginner's Guide" mainText="6 Apr 2021 — Anyone can build a website with the right tools - and the right guide! We'll show you how to make yours in just 9 steps." />
       <SearchResult ad={false} link="https://www.pcmag.com/how-to/how-to-create-a-website" header="How to Create a Website | PCMag" mainText="You can use an online service to create web pages, or build it offline using a desktop software tool. Or, if you're a coding dynamo, use a plain text editor to create a ..." />
-      <PeopleAlsoAsk heading=""/>
+      <PeopleAlsoAsk 
+        listHeader1="How can i create my own webpage" 
+        listItem1={(
+          <WebsiteSummary 
+          text={(
+            <div>
+              <h3><strong>How to set up a website: 5 steps to get started</strong></h3>
+              <ol>
+                <li>Make a plan for your website's structure and content</li>
+                <li>Register a domain name – ideally pick a .com.
+                </li>
+                <li>Find a website builder (and hosting provider) to create your site.
+                </li>
+                <li>
+                  Optimize it for search engines.
+                </li>
+                <li>
+                  Launch your website
+                </li>
+              </ol>
+            </div>
+            )}
+          link="https://www.websitetooltester.com/en/how-to-set-up-my-own-website/"
+          linkHeader="How to set up a website in 2021? Our updated beginners guide."
+          date="9 Feb 2021"
+          />
+          )}
+        listHeader2="How much does it cost to have someone build your website?"
+        listItem2={(
+          <WebsiteSummary
+          text={(<div>How Much Does Building a Typical Website Cost You? Depending on your needs, website development costs anywhere between $100 and $500. If you need a feature-rich, custom-built website, it can go as high as $30,000 or more. To build a small website, you'll need to have a budget for the domain name and web hosting.</div>)}
+          date="1 Mar 2021"
+          link="https://www.isitwp.com/how-much-does-it-cost-to-build-a-website-expert-answer/"
+          linkHeader="How Much Does It REALLY Cost to Build a Website? (Expert Answer)"
+          />
+          )}  
+        />
       <SearchResult ad={false} link="https://neilpatel.com/blog/from-0-to-launch-6-steps-to-building-your-first-website/" header="Build a Website: 6 Steps From 0 to Launch - Neil Patel" mainText="Ready to build a website? Here's step by step guide to building and opimizing your first website including what hosting and CMS to use." />
       <SearchResult ad={false} link="https://makeawebsitehub.com/" header="Make Your Own Website in Just 1 Hour With This Easy Guide ..." mainText="This site teaches you how to make a website in just 3 easy to follow steps. There's also lots of really useful resources to help you build traffic in 2021.
       " />
@@ -150,8 +187,62 @@ function SearchResult ({ad, link, header, mainText}) {
     </div>
   )
 }
-function PeopleAlsoAsk (){
-  return(<div></div>)
+class PeopleAlsoAsk extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      showItem1: false,
+      showItem2: false
+    }
+    //Use a higher order function for onClick that already has the right list number bound when passed to DropdownMenuItem
+    this.onClick = this.onClick.bind(this);
+    this.stateToOpposite = this.stateToOpposite.bind(this);
+  }
+  onClick(number, stateToOpposite){
+    let label = "showItem" + number.toString();
+    return function(e) {
+      e.preventDefault();
+      stateToOpposite(label);
+    }
+  }
+  stateToOpposite(label){
+    this.setState(
+      function(prevState) {
+        return {
+          [label]: !prevState[label]
+        };
+      });
+  }
+  render(){
+    const {listHeader1, listItem1, listHeader2, listItem2} = this.props;
+    const {showItem1, showItem2} = this.state;
+    return(
+      <div className="PeopleAlsoAsk-container">
+        <h2 className="people-ask-header">People also ask</h2>
+        <DropdownMenuItem title={listHeader1} up={showItem1} onClick={this.onClick(1, this.stateToOpposite)} />
+        {showItem1 ? listItem1 : null}
+        <DropdownMenuItem title={listHeader2} up={showItem2} onClick={this.onClick(2, this.stateToOpposite)} />
+        {showItem2 ? listItem2 : null}     
+      </div>
+    )
+  }
+}
+function DropdownMenuItem({title, up, onClick}){
+  let icon;
+  if(up){
+    icon = <FaAngleUp size={20}/>;
+  } else{
+    icon = <FaAngleDown size={20}/>;
+  }
+  return(
+    <button className="DropdownMenuItem" onClick={onClick}>
+      {title}
+      {icon}
+    </button>
+  )
+}
+function WebsiteSummary({text, link, linkHeader, date}){
+  return(<div>{text}</div>)
 }
 function Footer() {
   return(

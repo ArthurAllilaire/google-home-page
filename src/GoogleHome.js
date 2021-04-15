@@ -70,7 +70,7 @@ class Search extends React.Component {
 function Footer() {
   return(
     <div className="footer-container">
-      <div class="location-container" id="uk">United Kingdom</div>
+      <div className="location-container" id="uk">United Kingdom</div>
       <div className="footer-list">
         <div class="left">
           <div class="list-item">Advertising</div>
