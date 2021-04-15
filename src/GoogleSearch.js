@@ -191,7 +191,6 @@ function SearchResult ({ad, link, header, mainText}) {
     </div>
   )
 }
-
 function ResultHeader({ad, link, header }){
   let topHeader;
   if(ad){
@@ -296,8 +295,20 @@ function WebsiteSummary({text, link, linkHeader, date, searchFor}){
 }
 function Footer() {
   return(
-    <div className="footer-container">
-    
+    <div className="search-footer-container">
+      <div className="search-top-footer-container">
+        <div className="country">United Kingdom</div>
+        <FaCircle size={10}/>
+        <div>
+          IP27 0YZ, Lakenheath, Brandon - From your Internet address
+        </div>
+      </div>
+      <div className="bottom-footer-container">
+        <div className="footer-list-item">Help</div>
+        <div className="footer-list-item">Send feedback</div>
+        <div className="footer-list-item">Privacy</div>
+        <div className="footer-list-item">Terms</div>
+      </div>
     </div>
   )
 }

@@ -178,3 +178,14 @@ button{
   text-decoration: none;
 }
 /* Footer */
+.search-footer-container{
+  padding-left: 150px;
+  background-color: rgb(242, 242, 242);
+  display: grid;
+  width: 100%;
+  height: auto;
+  grid-template-rows:  1fr 1fr;
+}
+.country{
+  /* Border needed */
+}

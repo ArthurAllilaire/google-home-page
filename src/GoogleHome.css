@@ -133,7 +133,7 @@ input:focus{
   width: 272px;
 }
 .footer-container{
-  background-color: lightgray;
+  background-color: rgb(242, 242, 242);
   display: grid;
   width: 100%;
   height: minmax(20%, 200px);
