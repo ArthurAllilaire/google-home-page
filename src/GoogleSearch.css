@@ -179,13 +179,33 @@ button{
 }
 /* Footer */
 .search-footer-container{
-  padding-left: 150px;
   background-color: rgb(242, 242, 242);
   display: grid;
   width: 100%;
-  height: auto;
+  height: 100px;
   grid-template-rows:  1fr 1fr;
 }
+
 .country{
   /* Border needed */
+  padding: 5px 15px;
+  padding-left: 0px;
+  border-right: 1px solid gray;
+}
+.search-bottom-footer-container, .search-top-footer-container{
+  padding-left: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.search-top-footer-container{
+  border-bottom: 1px solid gray;
+}
+.search-footer-list-item{
+  padding-right: 35px;
+}
+#location-circle{
+  padding-left: 10px;
+  padding-right: 8px;
 }

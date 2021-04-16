@@ -298,16 +298,16 @@ function Footer() {
     <div className="search-footer-container">
       <div className="search-top-footer-container">
         <div className="country">United Kingdom</div>
-        <FaCircle size={10}/>
+        <FaCircle size={10} id="location-circle"/>
         <div>
-          IP27 0YZ, Lakenheath, Brandon - From your Internet address
+          AB 12C, London - From your Internet address
         </div>
       </div>
-      <div className="bottom-footer-container">
-        <div className="footer-list-item">Help</div>
-        <div className="footer-list-item">Send feedback</div>
-        <div className="footer-list-item">Privacy</div>
-        <div className="footer-list-item">Terms</div>
+      <div className="search-bottom-footer-container">
+        <div className="search-footer-list-item">Help</div>
+        <div className="search-footer-list-item">Send feedback</div>
+        <div className="search-footer-list-item">Privacy</div>
+        <div className="search-footer-list-item">Terms</div>
       </div>
     </div>
   )
