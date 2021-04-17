@@ -7,4 +7,5 @@
 * changing page of React app on submit of form
 * README.md markup
 * Higher order functions to change state based on different labels passed in
-
+* Started using BEM CSS selectors to avoid global name clashes
+*Using Background images and cropping them using background position

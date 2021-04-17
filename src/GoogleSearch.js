@@ -178,6 +178,7 @@ function Search() {
       <SearchResult ad={false} link="https://makeawebsitehub.com/" header="Make Your Own Website in Just 1 Hour With This Easy Guide ..." mainText="This site teaches you how to make a website in just 3 easy to follow steps. There's also lots of really useful resources to help you build traffic in 2021.
       " />
       <SearchResult ad={false} link="https://websitesetup.org/" header="How to Create a Website: Step-by-Step Guide for Beginners ..." mainText="25 Jan 2021 — Things You Need In Order to Build a Website · Choose a domain name · Register a domain and sign up with web hosting · Set up a website using ..." />
+      <GoogleNextPages />
     </div>
   )
 }
@@ -292,6 +293,35 @@ function WebsiteSummary({text, link, linkHeader, date, searchFor}){
     </div>
     </div>
     )
+}
+function GoogleNextPages(){
+  // Block is called GoogleNextPages
+  const oLinks = [];
+  oLinks.push(
+    <div      className="GoogleNextPages__image-container">
+      <div className="GoogleNextPages__o-image_red"></div>
+      1
+    </div>
+  )
+  for(let i=2; i < 11; i++){
+    oLinks.push(
+      <a href="#" className="GoogleNextPages__image-container">
+        <div className="GoogleNextPages__o-image"></div>
+          {i}      
+        </a>
+      )
+  }
+  return (
+    <div className="GoogleNextPages">
+      <div className="GoogleNextPages__startG"></div>
+      {oLinks}
+      <div className="GoogleNextPages__end-letters"></div>
+      <a href="#" className="GoogleNextPages__image-container">
+        <div className="GoogleNextPages__arrow-image"></div>
+          Next     
+        </a>
+    </div>
+  )
 }
 function Footer() {
   return(
