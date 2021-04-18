@@ -267,15 +267,26 @@ class PeopleAlsoAsk extends React.Component {
     )
   }
 }
-function DropdownMenuItem({title, up, onClick}){
+function DropdownMenuItem({title, up, onClick, img=""}){
   let icon;
   if(up){
-    icon = <FaAngleUp size={20}/>;
+    icon =  <div className="DropdownMenuItem__icon-container">
+              <FaAngleUp size={20} className="DropdownMenuItem__icon"/>
+            </div>;
   } else{
-    icon = <FaAngleDown size={20}/>;
+    icon =  <div className="DropdownMenuItem__icon-container">
+              <FaAngleDown size={20} className="DropdownMenuItem__icon" />
+            </div>;
+  }
+  let imageDiv;
+  if(img){
+    imageDiv =<div className="DropdownMenuItem__img-container"><img src={img} alt="" className="DropdownMenuItem__img"/></div>
+  } else{
+    imageDiv = null;
   }
   return(
-    <button className="DropdownMenuItem" onClick={onClick}>
+    <button className={img !== "" ? "DropdownMenuItem_img" : "DropdownMenuItem"} onClick={onClick}>
+      {imageDiv}
       {title}
       {icon}
     </button>
@@ -300,13 +311,53 @@ function WebsiteSummary({text, link, linkHeader, date, searchFor}){
 class RelatedSearches extends React.Component{
   constructor(props){
     super(props);
+    this.state={
+      showItem1: false,
+      showItem2: false
+    }
+    //Use a higher order function for onClick that already has the right list number bound when passed to DropdownMenuItem
+    this.onClick = this.onClick.bind(this);
+    this.stateToOpposite = this.stateToOpposite.bind(this);
+  }
+  onClick(number, stateToOpposite){
+    let label = "showItem" + number.toString();
+    return function(e) {
+      e.preventDefault();
+      stateToOpposite(label);
+    }
+  }
+  stateToOpposite(label){
+    this.setState(
+      function(prevState) {
+        return {
+          [label]: !prevState[label]
+        };
+      });
   }
   render(){
-    return(
+    const listHeader1 = "Best website builder";
+    const listHeader2 = "Website builder";
+    const listHeaderImg1 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-H7mbR1mOhVFdmxF3CyId4JuZORaJlkyFu2a&s=0";
+    const listHeaderImg2 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8xzhzm3Ly4xegC8IZkKB29Q4J5j42kVGX6W6JMa8&s=0";
+    const {showItem1, showItem2} = this.state;
+    const listItem1 = (
       <div></div>
+    )
+    const listItem2 = (
+      <div></div>
+    )
+    return(
+      <div className="RelatedSearches">
+        <h2 className="RelatedSearches__header">Related Searches</h2>
+        <DropdownMenuItem title={listHeader1} up={showItem1} onClick={this.onClick(1, this.stateToOpposite)} img={listHeaderImg1} />
+        {showItem1 ? listItem1 : null}
+        <DropdownMenuItem title={listHeader2} up={showItem2} onClick={this.onClick(2, this.stateToOpposite)} img={listHeaderImg2} />
+        {showItem2 ? listItem2 : null}       
+      </div>
     )
   }
 }
+
 function OtherSearches({otherSearches}){
   let otherSearcheshtml = otherSearches.map(
     function(item){
