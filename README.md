@@ -8,4 +8,7 @@
 * README.md markup
 * Higher order functions to change state based on different labels passed in
 * Started using BEM CSS selectors to avoid global name clashes
-*Using Background images and cropping them using background position
+* Using Background images and cropping them using background position
+* Using for loops and arrays to add repetitive html and make content more easily changeable
+* Using CSS grid and flexbox together
+

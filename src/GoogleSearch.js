@@ -101,6 +101,7 @@ class Header extends React.Component {
   }
 }
 function Search() {
+  const otherSearches=["how to build a website from scratch", "how to create a website on google", "creating a website for your business", "learn how to build a website", "how to build a good website", "how to build a website from scratch html", "how to build a website for a client"]
   return(
     <div className="search-results-container">
       <div id="results-container">
@@ -178,6 +179,8 @@ function Search() {
       <SearchResult ad={false} link="https://makeawebsitehub.com/" header="Make Your Own Website in Just 1 Hour With This Easy Guide ..." mainText="This site teaches you how to make a website in just 3 easy to follow steps. There's also lots of really useful resources to help you build traffic in 2021.
       " />
       <SearchResult ad={false} link="https://websitesetup.org/" header="How to Create a Website: Step-by-Step Guide for Beginners ..." mainText="25 Jan 2021 — Things You Need In Order to Build a Website · Choose a domain name · Register a domain and sign up with web hosting · Set up a website using ..." />
+      <RelatedSearches />
+      <OtherSearches otherSearches={otherSearches} />
       <GoogleNextPages />
     </div>
   )
@@ -293,6 +296,33 @@ function WebsiteSummary({text, link, linkHeader, date, searchFor}){
     </div>
     </div>
     )
+}
+class RelatedSearches extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+      <div></div>
+    )
+  }
+}
+function OtherSearches({otherSearches}){
+  let otherSearcheshtml = otherSearches.map(
+    function(item){
+      return(
+        <a href="#" className="otherSearches__list-item">
+          <FaSearch color="black" className="otherSearches__FaSearch"/>
+          <div className="otherSearches__link-text">{item}</div>
+        </a>
+      )
+    }
+  )
+  return(
+    <div className="otherSearches">
+      {otherSearcheshtml}
+    </div>
+  )
 }
 function GoogleNextPages(){
   // Block is called GoogleNextPages
