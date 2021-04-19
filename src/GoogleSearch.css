@@ -15,7 +15,7 @@
   width: 100%;
 }
 .logo{
-  padding: 4px 30px 0px 28px;
+  padding: 4px 26px 0px 22px;
 }
 .logo-button:hover{
   cursor: pointer;
@@ -25,7 +25,7 @@
   height: 44px;
   margin: auto;
   border-radius: 24px;
-  border: 1px solid #dfe1e5;
+  border: 1.5px solid #dfe1e5;
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -82,6 +82,19 @@ button{
   display: flex;
   flex-direction: row;
   margin: auto 5px;
+
+}
+.icon-list-item_blue{
+  color: #4285f4;
+  position: relative;
+  /* border-bottom: 5px solid #4285f4; */
+}
+#blue-border{
+  position: absolute;
+  top: 110%;
+  width: 110%;
+  background-color:#4285f4;
+  height: 5px;
 }
 .icon-list-item-icon{
   margin: auto 4px;
@@ -188,6 +201,7 @@ button{
   flex-direction: column;
   width: 100%;
   border-bottom: 1px solid #ecedef;
+  margin-bottom: 30px;
 }
 .RelatedSearches__header{
   font-family: Google Sans, arial, sans-serif;
@@ -207,7 +221,7 @@ button{
   width: 100%;
   padding: 8px 0px;
   border-top: 1px solid #ecedef;
-  height: auto;
+  height: 57px;
   align-items: center;
   cursor: pointer;
 }
@@ -220,12 +234,136 @@ button{
   flex-direction: row;
   align-items: center;
 }
+/* Transition for images */
+.DropdownMenuItem__image-anim-enter{
+ opacity: 0; 
+}
+.DropdownMenuItem__image-anim-enter-active{
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.DropdownMenuItem__image-anim-exit{
+  opacity: 1;
+}
+.DropdownMenuItem__image-anim-exit-active{
+  opacity: 0;
+  transition: opacity 500ms;
+}
 .DropdownMenuItem__icon-container{
   flex-grow: 1;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-
+}
+/* List item 1  */
+.WebBuilderList{
+  display: flex;
+  flex-direction: column;
+}
+.WebBuilderList__photo-list{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.WebBuilderList__img-container{
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,.03);
+  overflow: hidden;
+}
+.WebBuilderList__item-container{
+  text-decoration: none;
+}
+.WebBuilderList__item-container:hover{
+  text-decoration: underline;
+}
+.WebBuilderList__img{
+  margin: auto;
+}
+.WebBuilderList__img-text{
+  padding: 8px 5px;
+  color: black;
+}
+.WebBuilderList__see-more{
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 30px auto;  
+  border: 1px solid #dfe1e5;
+  border-radius: 25px;
+  width: 300px;
+  height: 36px;
+  color: #1a0dab;
+}
+.WebBuilderList__see-more:hover{
+  /* TODO add animation to shadow background */
+}
+.WebBuilderList__see-more-text{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+}
+.WebBuilderList__icon{
+  padding: 0px 15px;
+  position: absolute;
+  color: inherit;
+}
+/* List Item 2 */
+.WikiItem{
+  
+}
+.WikiItem__Wiki-cont{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 166px;
+  border: 1px solid #dfe1e5;
+  border-radius: 10px;
+}
+.WikiItem__Header-cont{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #dfe1e5;
+}
+.WikiItem__Img-cont{
+  margin: 0px 20px;
+  height: 58px; 
+  width: 77px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.WikiItem__Img{
+  height: 100%;
+  width: 100%;
+}
+.WikiItem__Header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.WikiItem__Header-text{
+  margin-left: 0px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.WikiItem__Wiki-text-cont{
+  margin: auto 22px;
+  font-size: 14.5px;
+}
+.WikiItem__Wiki-link{
+  padding-left: 5px;
+  text-decoration: none;
+  color: #1a0dab;
+}
+.WikiItem__Wiki-link:hover{
+  text-decoration: underline;
 }
 /* Other Searches links */
 .otherSearches{

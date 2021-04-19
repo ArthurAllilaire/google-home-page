@@ -1,6 +1,7 @@
 import React from 'react';
-import {FaBars, FaSearch, FaMicrophone, FaTimes, FaNewspaper, FaMapMarker, FaCaretSquareRight, FaTag, FaEllipsisV, FaCircle, FaAngleUp, FaAngleDown } from "react-icons/fa";
+import {FaBars, FaSearch, FaMicrophone, FaTimes, FaNewspaper, FaMapMarker, FaCaretSquareRight, FaTag, FaEllipsisV, FaCircle, FaAngleUp, FaAngleDown, FaArrowRight } from "react-icons/fa";
 import './GoogleSearch.css';
+import {CSSTransition} from 'react-transition-group'; // ES6
 
 class GoogleSearch extends React.Component{
   render() {
@@ -61,10 +62,11 @@ class Header extends React.Component {
       </div>
       <div id="bottom-header-container">
         <div id="icon-list">
-          <div className="icon-list-item">
+          <div className="icon-list-item icon-list-item_blue">
             {/*TODO - add blue highlighting */}
             <FaSearch className="icon-list-item-icon"/>
             <p>All</p>
+            <div id="blue-border"></div>
           </div>
           <div className="icon-list-item">
             <FaNewspaper className="icon-list-item-icon"/>
@@ -267,23 +269,30 @@ class PeopleAlsoAsk extends React.Component {
     )
   }
 }
-function DropdownMenuItem({title, up, onClick, img=""}){
+function DropdownMenuItem({title, up, onClick, img="", key}){
   let icon;
-  if(up){
-    icon =  <div className="DropdownMenuItem__icon-container">
-              <FaAngleUp size={20} className="DropdownMenuItem__icon"/>
-            </div>;
-  } else{
-    icon =  <div className="DropdownMenuItem__icon-container">
-              <FaAngleDown size={20} className="DropdownMenuItem__icon" />
-            </div>;
-  }
   let imageDiv;
-  if(img){
-    imageDiv =<div className="DropdownMenuItem__img-container"><img src={img} alt="" className="DropdownMenuItem__img"/></div>
+  if(up){
+    icon =  (<div className="DropdownMenuItem__icon-container">
+              <FaAngleUp size={20} className="DropdownMenuItem__icon"/>
+            </div>);
   } else{
-    imageDiv = null;
+    icon =  (<div className="DropdownMenuItem__icon-container">
+    <FaAngleDown size={20} className="DropdownMenuItem__icon" />
+    </div>);
+    if(img){
+      imageDiv =(<div className="DropdownMenuItem__img-container" key={key}>
+                  <img src={img} alt="" className="DropdownMenuItem__img"/>
+                </div>)
+    } else{
+      imageDiv = null;
+    }
   }
+  // <CSSTransition
+  // in={!up}
+  // timeout={500}
+  // classNames="DropdownMenu__image-anim">
+  // </CSSTransition>
   return(
     <button className={img !== "" ? "DropdownMenuItem_img" : "DropdownMenuItem"} onClick={onClick}>
       {imageDiv}
@@ -340,18 +349,62 @@ class RelatedSearches extends React.Component{
     const listHeaderImg1 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-H7mbR1mOhVFdmxF3CyId4JuZORaJlkyFu2a&s=0";
     const listHeaderImg2 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8xzhzm3Ly4xegC8IZkKB29Q4J5j42kVGX6W6JMa8&s=0";
     const {showItem1, showItem2} = this.state;
+    const listItem1Images = [
+      {img: listHeaderImg1, text: "GoDaddy"},
+      {img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9y7v9prw0Gxl5geyjKKDcK2PdMqY6xoODCPc0AzrEmi-4zSpNbpfJRg&s=0", text:"Squarespace"},
+      {img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7htTH7q8j-TGD3x7AgbahNzXLaSpkrCnCB-kI&s=0", text:"Weebly"},
+      {img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTURCLyawZV5N54GZIjmoyPab78J3XSx7Q9J98N&s=0", text:"Shopify"}, 
+      {img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwXS78aapUUrlxhwz1RHkyNACWju8qTLm30O0X&s=0", text:"HostGator"}, 
+      {img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRivpDeDqCrJwwgI_9zcohTAc4-YNaxvl0ZR1r-&s=0", text:"Jimdo"}]
+    let listItem1ImageList = listItem1Images.map(
+      function(item){
+        return(
+          <a href="#" className="WebBuilderList__item-container" key={item.text}>
+            <div className="WebBuilderList__img-container">
+              <img src={item.img} alt="" className="WebBuilderList__img"/>
+            </div>
+            <div className="WebBuilderList__img-text">
+              {item.text}
+            </div>
+          </a>
+        )
+      }
+    )
     const listItem1 = (
-      <div></div>
+      <div className="WebBuilderList">
+        <div className="WebBuilderList__photo-list">
+          {listItem1ImageList}
+        </div>
+        <a href="#" className="WebBuilderList__see-more">
+          <FaArrowRight className="WebBuilderList__icon"/>
+          <div className="WebBuilderList__see-more-text">See more</div>
+        </a>
+      </div>
     )
     const listItem2 = (
-      <div></div>
+      <div className="WikiItem">
+        <div className="WikiItem__Wiki-cont">
+          <div className="WikiItem__Header-cont">
+            <div className="WikiItem__Img-cont">
+              <img src={listHeaderImg2} alt="" className="WikiItem__Img"/>
+            </div>
+            <div className="WikiItem__Header">
+              <h3 className="WikiItem__Header-text">Website Builder</h3>
+              <div className="WikiItem__Sub-header">Software category</div>
+            </div>
+          </div>
+          <div className="WikiItem__Wiki-text-cont">Website builders are tools that typically allow the construction of websites without manual code editing. They fall into two categories: online proprietary tools provided by web hosting companies. These are typically intended for users to build their private site.
+          <span><a href="https://en.wikipedia.org/wiki/Website_builder" className="WikiItem__Wiki-link">Wikipedia</a></span>
+          </div>
+        </div>
+      </div>
     )
     return(
       <div className="RelatedSearches">
         <h2 className="RelatedSearches__header">Related Searches</h2>
-        <DropdownMenuItem title={listHeader1} up={showItem1} onClick={this.onClick(1, this.stateToOpposite)} img={listHeaderImg1} />
+        <DropdownMenuItem title={listHeader1} up={showItem1} onClick={this.onClick(1, this.stateToOpposite)} img={listHeaderImg1} key={1} />
         {showItem1 ? listItem1 : null}
-        <DropdownMenuItem title={listHeader2} up={showItem2} onClick={this.onClick(2, this.stateToOpposite)} img={listHeaderImg2} />
+        <DropdownMenuItem title={listHeader2} up={showItem2} onClick={this.onClick(2, this.stateToOpposite)} img={listHeaderImg2} key={2} />
         {showItem2 ? listItem2 : null}       
       </div>
     )
@@ -362,7 +415,7 @@ function OtherSearches({otherSearches}){
   let otherSearcheshtml = otherSearches.map(
     function(item){
       return(
-        <a href="#" className="otherSearches__list-item">
+        <a href="#" className="otherSearches__list-item" key={item}>
           <FaSearch color="black" className="otherSearches__FaSearch"/>
           <div className="otherSearches__link-text">{item}</div>
         </a>

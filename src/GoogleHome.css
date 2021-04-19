@@ -98,9 +98,7 @@ input:focus{
   border-radius: 24px;
   outline: none;
 }
-/* input[type="text"]{
-  padding-left: 5%;
-} */
+
 .button-link-container{
   flex-grow: 1.2;
   display: flex;
