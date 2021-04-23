@@ -11,4 +11,5 @@
 * Using Background images and cropping them using background position
 * Using for loops and arrays to add repetitive html and make content more easily changeable
 * Using CSS grid and flexbox together
+* Learnt how to host website on github pages
 
