@@ -91,7 +91,7 @@ button{
 }
 #blue-border{
   position: absolute;
-  top: 110%;
+  top: 45px;
   width: 110%;
   background-color:#4285f4;
   height: 5px;

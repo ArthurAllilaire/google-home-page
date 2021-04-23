@@ -63,7 +63,6 @@ class Header extends React.Component {
       <div id="bottom-header-container">
         <div id="icon-list">
           <div className="icon-list-item icon-list-item_blue">
-            {/*TODO - add blue highlighting */}
             <FaSearch className="icon-list-item-icon"/>
             <p>All</p>
             <div id="blue-border"></div>
