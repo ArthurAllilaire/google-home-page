@@ -1,5 +1,7 @@
 # google-home-page #
 URL: https://arthurallilaire.github.io/google-home-page/
+##Functionality:
+Enter a query or press google-search button to go to results page.
 ## Skills I have learnt: ##
 * Installing create-react-app and nodejs package manager
 * Using font-awesome icons in react app
