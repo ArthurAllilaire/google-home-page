@@ -43,5 +43,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://arthurallilaire.github.io/google-home-page"
+  "homepage": "https://arthurallilaire.github.io/google-home-page",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
 }
